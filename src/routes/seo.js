@@ -13,6 +13,8 @@ import { checkPageSpeed } from "../services/check-speed.js";
 
 const router = express.Router();
 
+router.get("/", (req, res) => res.send("Welcome to SEOGlide API.."));
+
 router.get("/metadata", async (req, res) => {
   const { url } = req.query;
   if (!url) return res.status(400).json({ error: "URL is required" });
