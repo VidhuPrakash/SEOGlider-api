@@ -70,5 +70,5 @@ yarn dev
 This project is not open-source, but feedback and feature requests are welcome!
 
 ## Contact & Support
-For support or business inquiries, reach out at **your-email@example.com**.
+For support or business inquiries, reach out at **vidhu0dev@gmail.com**.
 
