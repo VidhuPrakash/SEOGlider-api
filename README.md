@@ -1,70 +1,72 @@
 # SEOGlide API
 
-SEOGlide API is a powerful and lightweight API designed to extract metadata and optimize web pages for SEO. Built with **Node.js, Express, and Puppeteer**, it provides real-time insights for SEO professionals and developers.
+SEOGlide is a powerful and lightweight SEO analysis API service that provides various SEO-related insights such as metadata extraction, keyword analysis, page speed evaluation, and more.
 
 ## Features
-- Extract metadata (title, description, keywords, OpenGraph tags, etc.)
-- Analyze webpage readability
-- Detect canonical URLs and structured data
-- Fetch full HTML content using Puppeteer
-- Fast and lightweight, optimized for free-tier hosting
 
-## API Usage
-### Base URL
+- **Metadata Extraction**: Extract title, description, keywords, and Open Graph (OG) tags from a given URL.
+- **SEO Score Calculation**: Analyze metadata, heading structure, alt text in images, and keyword density to provide an SEO score for a webpage.
+- **Keyword Analysis**: Extract relevant keywords and identify missing primary keywords based on a given target keyword.
+- **Heading Structure Analysis**: Check if a webpage follows a proper H1, H2, H3... structure.
+- **Broken Link Checker**: Detect and report broken internal and external links on a webpage.
+- **Image Optimization Check**: Identify missing alt tags and suggest image compression improvements.
+- **Mobile-Friendliness Check**: Evaluate if a website is responsive and mobile-friendly.
+- **Page Speed Insights**: Fetch Google Lighthouse analysis data.
+- **Robots.txt & Sitemap Analysis**: Validate robots.txt rules and check for a valid sitemap.xml.
+
+  ### Base URL
 ```
 https://seoglider-api.onrender.com/api/seo/
 ```
 
-### Endpoints
-#### 1. Extract Metadata
-```
-GET /api/seo?url=<website_url>
-```
-**Response Example:**
-```json
-{
-  "title": "Example Title",
-  "description": "Meta description of the page",
-  "keywords": ["SEO", "optimization", "metadata"],
-  "canonical": "https://example.com"
-}
+## Installation
+
+```bash
+git clone https://github.com/VidhuPrakash/SEOGlide-api.git
+cd SEOGlide
+npm install  # or yarn install
 ```
 
-#### 2. Fetch Readability Score
-```
-GET /api/readability?url=<website_url>
-```
-**Response Example:**
-```json
-{
-  "readability_score": 78,
-  "content_summary": "This article discusses..."
-}
+## Running the API Server
+
+```bash
+npm start  # or yarn start
 ```
 
-## Deployment
-SEOGlide API is hosted on **Render’s free tier**, optimized for low resource usage. The backend uses **Puppeteer with chrome-aws-lambda** for rendering pages efficiently.
+The API will be available at `http://localhost:3000/api`
 
-## Free Trial & Daily Limit
-- **Free Trial:** Users can make up to **X** requests per day.
-- **Paid Plans:** Coming soon for higher limits.
+## API Endpoints
 
-## Installation (For Local Development)
-```sh
-git clone https://github.com/your-repo/SEOGlide-API.git
-cd SEOGlide-API
-yarn install
-```
+### Metadata Extraction
+- **Endpoint:** `GET /api/metadata?url=YOUR_URL`
+- **Response:**
+  ```json
+  {
+    "title": "Example Title",
+    "description": "Example description",
+    "keywords": "example, keywords",
+    "ogTitle": "Example OG Title",
+    "ogDescription": "Example OG Description"
+  }
+  ```
 
-### Environment Setup
-Create a `.env` file with:
-```
-PORT=3000
-```
-Then, run the server:
-```sh
-yarn dev
-```
+### Keyword Analysis
+- **Endpoint:** `GET /api/keywords?url=YOUR_URL`
+
+### Heading Structure Analysis
+- **Endpoint:** `GET /api/headings?url=YOUR_URL`
+
+### Image Optimization Check
+- **Endpoint:** `GET /api/image-optimization?url=YOUR_URL`
+
+### Page Speed Analysis
+- **Endpoint:** `GET /api/page-speed?url=YOUR_URL`
+
+### Mobile-Friendliness Check
+- **Endpoint:** `GET /api/mobile-friendly?url=YOUR_URL`
+
+### Robots.txt & Sitemap Analysis
+- **Endpoint:** `GET /api/robots-sitemap?url=YOUR_URL`
 
 ## Contributing
 This project is not open-source, but feedback and feature requests are welcome!
