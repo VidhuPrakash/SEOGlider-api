@@ -21,6 +21,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Routes
+app.get("/", (req, res) => res.send("Welcome to SEOGlide API.."));
 app.use("/api/seo", seoRoutes);
 
 app.listen(PORT, () => console.log(`SEOGlide API running on port ${PORT}`));
